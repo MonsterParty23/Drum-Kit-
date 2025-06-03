@@ -7,11 +7,17 @@ body{
     margin: 0;
     background: linear-gradient(to right, #222, #555);
     color: #fff;
+    /*background: url('Images/noctis.jpg') no-repeat center center fixed;*/
+    /*background-size: cover;*/
 }
 #drum-kit{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 .key{
     border: 2px solid #fff;
@@ -24,7 +30,9 @@ body{
     height: 100px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.1s ease;
+    transition: transform 0.7s ease;
+    width: 100px;
+    height: 100px;
 }
 .key.active{
     transform: scale(1.1);
@@ -35,4 +43,30 @@ body{
 .key:active, .key:focus{
     outline: none;
     transform: scale(0.9);
+}
+
+#bg-video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+    #drum-kit{
+        flex-direction: column;
+        align-items: center;
+    }
+    .key{
+        width: 80px;
+        height: 80px;
+        font-size: 14px;
+    }
 }
